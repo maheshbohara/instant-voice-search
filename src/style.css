@@ -1,0 +1,158 @@
+.voice-search-input-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.voice-search-input-wrapper input {
+    padding-right: 40px !important; /* Make room for the icon */
+}
+
+/* RTL support */
+.rtl .voice-search-input-wrapper input {
+    padding-right: 0 !important;
+    padding-left: 40px !important;
+}
+
+.voice-search-mic {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+    z-index: 1;
+}
+
+/* RTL support */
+.rtl .voice-search-mic {
+    right: auto;
+    left: 8px;
+}
+
+.voice-search-mic:hover {
+    color: #333;
+}
+
+.voice-search-mic.listening {
+    color: #ff4444;
+    animation: pulse 1.5s infinite;
+}
+
+.voice-search-mic svg {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+    70% {
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Default WordPress search form compatibility */
+#searchform .voice-search-mic,
+.searchform .voice-search-mic {
+    position: relative;
+    top: -2px;
+    margin-left: 4px;
+}
+
+/* WooCommerce compatibility */
+.woocommerce-product-search .voice-search-mic {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .voice-search-mic svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Ensure proper alignment in different themes */
+.search-form-wrapper .voice-search-mic,
+.search-form .voice-search-mic {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Browser support message */
+.voice-search-browser-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-left: 4px solid #ff4444;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 12px 20px;
+    border-radius: 4px;
+    z-index: 999999;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* RTL support for browser message */
+.rtl .voice-search-browser-message {
+    right: auto;
+    left: 20px;
+    border-left: none;
+    border-right: 4px solid #ff4444;
+}
+
+.voice-search-browser-message p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* RTL support for slide animation */
+.rtl .voice-search-browser-message {
+    animation: slideInRTL 0.3s ease-out;
+}
+
+@keyframes slideInRTL {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} 
