@@ -32,7 +32,6 @@ class Instant_Voice_Search {
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
     }
 
-    
     /**
      * Enqueue frontend assets.
      * 
